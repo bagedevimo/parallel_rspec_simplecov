@@ -8,8 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors = ["Ben Anderson"]
   spec.email = ["me@benanderson.nz"]
 
-  spec.summary = "TODO: Write a short summary, because RubyGems requires one."
-  spec.description = "TODO: Write a longer description or delete this line."
+  spec.summary = "A simplecov collator for parallel_rspec"
   spec.homepage = "https://github.com/bagedevimo/parallel_rspec_simplecov"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.2.0"
@@ -17,7 +16,7 @@ Gem::Specification.new do |spec|
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = spec.homepage
-  spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
+  spec.metadata["changelog_uri"] = "https://github.com/bagedevimo/parallel_rspec_simplecov/blob/main/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
