@@ -6,3 +6,4 @@ source "https://rubygems.org"
 gemspec
 
 gem "gem-release", "~> 2.2"
+gem "ostruct"

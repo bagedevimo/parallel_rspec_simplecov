@@ -12,6 +12,7 @@ GEM
     diff-lcs (1.6.2)
     docile (1.4.1)
     gem-release (2.2.4)
+    ostruct (0.6.3)
     parallel_rspec (1.2.0)
       rake (~> 10.0)
       rspec
@@ -42,12 +43,14 @@ PLATFORMS
 
 DEPENDENCIES
   gem-release (~> 2.2)
+  ostruct
   parallel_rspec_simplecov!
 
 CHECKSUMS
   diff-lcs (1.6.2) sha256=9ae0d2cba7d4df3075fe8cd8602a8604993efc0dfa934cff568969efb1909962
   docile (1.4.1) sha256=96159be799bfa73cdb721b840e9802126e4e03dfc26863db73647204c727f21e
   gem-release (2.2.4) sha256=2f11124c1580c811507c3b47e875e420cf3ed792a98105b49df11971e6e94db3
+  ostruct (0.6.3) sha256=95a2ed4a4bd1d190784e666b47b2d3f078e4a9efda2fccf18f84ddc6538ed912
   parallel_rspec (1.2.0) sha256=766b996cbe943b421d3663ec9ee1d548295b13039a4bcde1aaab729ac166ed40
   parallel_rspec_simplecov (0.1.2)
   rake (10.5.0) sha256=2b55a1ad44b5c945719d8a97c302a316af770b835187d12143e83069df5a8a49
