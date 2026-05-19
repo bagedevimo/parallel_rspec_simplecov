@@ -41,7 +41,7 @@ module ParallelRSpec::SimpleCov
     end
 
     RSpec.configuration.after(:suite) do
-      ParallelRSpec::SimpleCov.collate_simplecov!
+      ParallelRSpec::SimpleCov.collate!
     end
 
     force_worker_settings.call
@@ -52,7 +52,7 @@ module ParallelRSpec::SimpleCov
     @simplecov_enabled = true
   end
 
-  def self.collate_simplecov!
+  def self.collate!
     base_dir = @simplecov_base_dir || ::SimpleCov.coverage_dir
 
     # Force the server process's resultset to disk before we glob. SimpleCov's
