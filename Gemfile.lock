@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    parallel_rspec_simplecov (0.1.0)
+    parallel_rspec_simplecov (0.1.2)
       parallel_rspec (~> 1.0)
       rspec (>= 3.2.0)
       simplecov (>= 0.19.0)
@@ -49,7 +49,7 @@ CHECKSUMS
   docile (1.4.1) sha256=96159be799bfa73cdb721b840e9802126e4e03dfc26863db73647204c727f21e
   gem-release (2.2.4) sha256=2f11124c1580c811507c3b47e875e420cf3ed792a98105b49df11971e6e94db3
   parallel_rspec (1.2.0) sha256=766b996cbe943b421d3663ec9ee1d548295b13039a4bcde1aaab729ac166ed40
-  parallel_rspec_simplecov (0.1.0)
+  parallel_rspec_simplecov (0.1.2)
   rake (10.5.0) sha256=2b55a1ad44b5c945719d8a97c302a316af770b835187d12143e83069df5a8a49
   rspec (3.13.2) sha256=206284a08ad798e61f86d7ca3e376718d52c0bc944626b2349266f239f820587
   rspec-core (3.13.6) sha256=a8823c6411667b60a8bca135364351dda34cd55e44ff94c4be4633b37d828b2d
