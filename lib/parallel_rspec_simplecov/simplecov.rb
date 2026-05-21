@@ -75,7 +75,6 @@ module ParallelRSpec::SimpleCov
       else ::SimpleCov::Formatter::MultiFormatter.new(@simplecov_formatters)
       end
 
-
     ::SimpleCov.collate(resultsets) do
       coverage_dir base_dir
       formatter collate_formatter if collate_formatter
