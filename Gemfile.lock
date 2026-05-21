@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     parallel_rspec_simplecov (0.3.0)
-      parallel_rspec (~> 3.1.0)
+      parallel_rspec (~> 3.1)
       rspec (>= 3.2.0)
       simplecov (>= 0.19.0)
 
