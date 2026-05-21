@@ -12,7 +12,6 @@ module ParallelRSpec::SimpleCov
   end
 
   def self.start(profile = nil, formatters: nil, &block)
-    puts "SimpleCov.start"
     ::SimpleCov.enable_for_subprocesses true
 
     base_dir = ::SimpleCov.coverage_dir
@@ -74,7 +73,6 @@ module ParallelRSpec::SimpleCov
       else ::SimpleCov::Formatter::MultiFormatter.new(@simplecov_formatters)
       end
 
-    puts "Collating #{resultsets.size} SimpleCov resultset(s)..."
 
     ::SimpleCov.collate(resultsets) do
       coverage_dir base_dir
