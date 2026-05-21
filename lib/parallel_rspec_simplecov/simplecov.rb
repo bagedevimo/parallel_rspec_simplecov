@@ -5,7 +5,7 @@ require "parallel_rspec/config"
 module ParallelRSpec::SimpleCov
   @simplecov_enabled = false
   @simplecov_base_dir = nil
-  @simplecov_formatters = nil
+  @simplecov_formatters = []
 
   def self.simplecov_enabled?
     @simplecov_enabled
@@ -49,7 +49,7 @@ module ParallelRSpec::SimpleCov
     start_simplecov.call("RSpec Server", File.join(base_dir, "rspec_server"))
 
     @simplecov_base_dir = base_dir
-    @simplecov_formatters = formatters
+    @simplecov_formatters = Array(formatters)
     @simplecov_enabled = true
   end
 
@@ -69,7 +69,7 @@ module ParallelRSpec::SimpleCov
     end
 
     collate_formatter =
-      case (@simplecov_formatters || []).length
+      case @simplecov_formatters.length
       when 0 then nil
       when 1 then @simplecov_formatters.first
       else ::SimpleCov::Formatter::MultiFormatter.new(@simplecov_formatters)
@@ -81,5 +81,6 @@ module ParallelRSpec::SimpleCov
     end
   rescue => e
     warn "[parallel_rspec] simplecov collation failed: #{e.class}: #{e.message}"
+    warn e.backtrace.first(5).join("\n") if e.backtrace
   end
 end
