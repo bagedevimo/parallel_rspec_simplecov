@@ -12,6 +12,8 @@ module ParallelRSpec::SimpleCov
   end
 
   def self.start(profile = nil, formatters: nil, &block)
+    return if @simplecov_enabled
+
     ::SimpleCov.enable_for_subprocesses true
 
     base_dir = ::SimpleCov.coverage_dir
