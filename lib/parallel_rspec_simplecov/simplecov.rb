@@ -7,10 +7,27 @@ module ParallelRSpec::SimpleCov
   @simplecov_base_dir = nil
   @simplecov_formatters = []
 
+  # Returns true once {.start} has been called in this process.
+  #
+  # @return [Boolean]
   def self.simplecov_enabled?
     @simplecov_enabled
   end
 
+  # Configure SimpleCov to merge coverage across `parallel_rspec` workers.
+  #
+  # Call this in place of `SimpleCov.start` from your `spec_helper.rb`. It
+  # starts SimpleCov on the server process, registers an `after_fork` hook
+  # so each worker writes its own resultset under `coverage/rspec_N/`, and
+  # registers an `after(:suite)` hook to collate everything into a merged
+  # report at the end of the run.
+  #
+  # Idempotent: subsequent calls are no-ops.
+  #
+  # @param profile [String, nil] SimpleCov profile name, passed through to `SimpleCov.start`.
+  # @param formatters [Array<SimpleCov::Formatter>, nil] formatters to apply to the merged result. Accepts formatter classes or instances. When more than one is given they are wrapped in a `MultiFormatter`. When omitted, SimpleCov's default formatter is used.
+  # @yield SimpleCov configuration block (e.g. `add_filter`, `enable_coverage :branch`), passed through to `SimpleCov.start`.
+  # @return [void]
   def self.start(profile = nil, formatters: nil, &block)
     return if @simplecov_enabled
 
@@ -53,6 +70,12 @@ module ParallelRSpec::SimpleCov
     @simplecov_enabled = true
   end
 
+  # Merge per-worker resultsets into a single report. Called automatically
+  # from the `after(:suite)` hook installed by {.start} — not intended to
+  # be called directly.
+  #
+  # @api private
+  # @return [void]
   def self.collate!
     base_dir = @simplecov_base_dir || ::SimpleCov.coverage_dir
 
