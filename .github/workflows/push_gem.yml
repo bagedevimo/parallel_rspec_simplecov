@@ -31,6 +31,8 @@ jobs:
       - name: Create GitHub release
         run: |
           tag_name="$(git describe --tags --abbrev=0)"
-          gh release create "${tag_name}" --verify-tag --generate-notes
+          prerelease_flag=""
+          if [[ "$tag_name" =~ [a-zA-Z] ]]; then prerelease_flag="--prerelease"; fi
+          gh release create "${tag_name}" --verify-tag --generate-notes $prerelease_flag
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
