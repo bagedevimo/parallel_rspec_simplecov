@@ -1,3 +1,9 @@
-module ParallelRSpec::Simplecov
-  VERSION: String
+module ParallelRSpec
+  module SimpleCov
+    VERSION: String
+
+    def self.simplecov_enabled?: () -> bool
+    def self.start: (?String? profile, ?formatters: Array[untyped]?) ?{ () -> void } -> void
+    def self.collate!: () -> void
+  end
 end
